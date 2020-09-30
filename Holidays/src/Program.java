@@ -1,8 +1,13 @@
+import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.LinkedHashMap;
@@ -21,6 +26,7 @@ public class Program {
         years = inputInt(1, 500);
 
         holidays = getAllHolidaysFromFile(years);
+        holidays = addVariableHolidays(holidays, years);
         holidaysPerWeekday = countHolidaysForEachWeekday(holidays);
 
         System.out.println();
@@ -28,6 +34,28 @@ public class Program {
         for (int i = 0; i < 5; i++) {
             System.out.printf("%9s:   %d%n", DayOfWeek.of(i + 1), holidaysPerWeekday[i]);
         }
+    }
+
+    private static LinkedHashMap<LocalDate, String> addVariableHolidays(LinkedHashMap<LocalDate, String> holidays, int years) {
+        int year;
+
+        String date;
+        for (int i = 0; i < years; i++) {
+            year = 2020 + i;
+            addDay(holidays, year, "Ostermontag");
+            addDay(holidays, year, "Christi Himmelfahrt");
+            addDay(holidays, year, "Pfingstmontag");
+            addDay(holidays, year, "Fronleichnam");
+        }
+
+        return holidays;
+    }
+
+    private static void addDay(LinkedHashMap<LocalDate, String> holidays, int year, String name) {
+        String urlBase = "https://feiertage-api.de/api/?jahr=";
+        JSONObject json = getAPI(urlBase + year);
+        String date = json.getJSONObject("BY").getJSONObject(name).get("datum").toString();
+        holidays.put(LocalDate.parse(date), name);
     }
 
     private static LinkedHashMap<LocalDate, String> getAllHolidaysFromFile(int years) {
@@ -64,7 +92,7 @@ public class Program {
                 case FRIDAY -> friday++;
             }
 
-            if (e.getKey().getYear() > previousYear) {
+            if (e.getKey().getYear() != previousYear) {
                 System.out.println();
                 previousYear = e.getKey().getYear();
             }
@@ -120,5 +148,17 @@ public class Program {
         System.out.println();
 
         return integer;
+    }
+
+    private static JSONObject getAPI(String url) {
+        JSONObject json = new JSONObject();
+        try {
+            json = new JSONObject(IOUtils.toString(new URL(url), StandardCharsets.UTF_8));
+        } catch (MalformedURLException e) {
+            System.out.println("MalformedURLException");
+        } catch (IOException e) {
+            System.out.println("IOException");
+        }
+        return json;
     }
 }

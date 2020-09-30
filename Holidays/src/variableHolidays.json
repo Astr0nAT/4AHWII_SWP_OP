@@ -1,0 +1,24 @@
+{
+  "varibaleHolidays": [
+    {
+      "dayOfWeek": 5,
+      "name": "Karfreitag"
+    },
+    {
+      "dayOfWeek": 1,
+      "name": "Ostermontag"
+    },
+    {
+      "dayOfWeek": 4,
+      "name": "Christi Himmelfahrt"
+    },
+    {
+      "dayOfWeek": 1,
+      "name": "Pfingstmontag"
+    },
+    {
+      "dayOfWeek": 4,
+      "name": "Fronleichnam"
+    }
+  ]
+}

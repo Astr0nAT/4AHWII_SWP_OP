@@ -11,11 +11,6 @@
       "name": "Heilige Drei Könige"
     },
     {
-      "day": 19,
-      "month": 3,
-      "name": "St. Josef"
-    },
-    {
       "day": 1,
       "month": 5,
       "name": "Staatsfeiertag"
@@ -41,11 +36,6 @@
       "name": "Mariä Empfängnis"
     },
     {
-      "day": 24,
-      "month": 12,
-      "name": "Heiliger Abend"
-    },
-    {
       "day": 25,
       "month": 12,
       "name": "Weihnachten"
@@ -54,11 +44,6 @@
       "day": 26,
       "month": 12,
       "name": "Stefanitag"
-    },
-    {
-      "day": 31,
-      "month": 12,
-      "name": "Silvester"
     }
   ]
 }
