@@ -10,9 +10,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Program {
     private static final Scanner reader = new Scanner(System.in);
@@ -71,7 +69,8 @@ public class Program {
         for (int j = 0; j < years; j++) {
             for (int i = 0; i < array.length(); i++) {
                 date = array.getJSONObject(i);
-                holidays.put(LocalDate.of(year + j, (int) date.get("month"), (int) date.get("day")), date.get("name").toString());
+                holidays.put(LocalDate.of(year + j, (int) date.get("month"), (int) date.get("day")),
+                        date.get("name").toString());
             }
         }
 
