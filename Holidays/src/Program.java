@@ -18,14 +18,19 @@ public class Program {
     public static void main(String[] args) {
         LinkedHashMap<LocalDate, String> holidays;
         int[] holidaysPerWeekday;
-        int years;
+        int duration;
+        int beginningYear;
 
+        System.out.print("Beginning year (1920-2120): ");
+        beginningYear = inputInt(1920, 2120);
         System.out.print("How many years do you want to calculate: ");
-        years = inputInt(1, 500);
+        duration = inputInt(1, 500);
 
-        holidays = getAllHolidaysFromFile(years);
-        holidays = addVariableHolidays(holidays, years);
-        holidaysPerWeekday = countHolidaysForEachWeekday(holidays);
+        holidays = getAllHolidaysFromFile(duration, beginningYear);
+        holidays = addVariableHolidays(holidays, duration, beginningYear);
+        holidaysPerWeekday = countHolidaysForEachWeekday(holidays, beginningYear);
+
+        printHolidays(holidays);
 
         System.out.println();
 
@@ -34,12 +39,27 @@ public class Program {
         }
     }
 
-    private static LinkedHashMap<LocalDate, String> addVariableHolidays(LinkedHashMap<LocalDate, String> holidays, int years) {
+    private static void printHolidays(LinkedHashMap<LocalDate, String> holidays) {
+        LocalDate beginningDate = (LocalDate) holidays.keySet().toArray()[0];
+        int currentYear = beginningDate.getYear();
+        SortedSet<LocalDate> keys = new TreeSet<>(holidays.keySet());
+
+        for (LocalDate key : keys) {
+            System.out.printf("%s   %19s   %9s%n", key.toString(), holidays.get(key), key.getDayOfWeek());
+            if (key.getYear() > currentYear) {
+                currentYear = key.getYear();
+                System.out.println();
+            }
+        }
+    }
+
+    private static LinkedHashMap<LocalDate, String> addVariableHolidays(LinkedHashMap<LocalDate, String> holidays,
+                                                                        int duration, int beginningYear) {
         int year;
 
         String date;
-        for (int i = 0; i < years; i++) {
-            year = 2020 + i;
+        for (int i = 0; i < duration; i++) {
+            year = beginningYear + i;
             addDay(holidays, year, "Ostermontag");
             addDay(holidays, year, "Christi Himmelfahrt");
             addDay(holidays, year, "Pfingstmontag");
@@ -56,20 +76,19 @@ public class Program {
         holidays.put(LocalDate.parse(date), name);
     }
 
-    private static LinkedHashMap<LocalDate, String> getAllHolidaysFromFile(int years) {
+    private static LinkedHashMap<LocalDate, String> getAllHolidaysFromFile(int duration, int beginningYear) {
         LinkedHashMap<LocalDate, String> holidays = new LinkedHashMap<>();
 
-        int year = 2020;
         String path = "C:\\Users\\schul\\OneDrive - HTL Anichstrasse\\4AHWII\\SWP Rubner Szabolcs\\4AHWII_SWP_OP\\Holidays\\src\\holidays.json";
         String jsonString = readFile(path).toString();
 
         JSONObject date = new JSONObject(jsonString);
         JSONArray array = date.getJSONArray("holidays");
 
-        for (int j = 0; j < years; j++) {
+        for (int j = 0; j < duration; j++) {
             for (int i = 0; i < array.length(); i++) {
                 date = array.getJSONObject(i);
-                holidays.put(LocalDate.of(year + j, (int) date.get("month"), (int) date.get("day")),
+                holidays.put(LocalDate.of(beginningYear + j, (int) date.get("month"), (int) date.get("day")),
                         date.get("name").toString());
             }
         }
@@ -77,9 +96,8 @@ public class Program {
         return holidays;
     }
 
-    private static int[] countHolidaysForEachWeekday(LinkedHashMap<LocalDate, String> holidays) {
+    private static int[] countHolidaysForEachWeekday(LinkedHashMap<LocalDate, String> holidays, int beginningYear) {
         int monday = 0, tuesday = 0, wednesday = 0, thursday = 0, friday = 0;
-        int previousYear = 2020;
         int[] holidaysPerWeekday = new int[5];
 
         for (Map.Entry<LocalDate, String> e : holidays.entrySet()) {
@@ -90,13 +108,6 @@ public class Program {
                 case THURSDAY -> thursday++;
                 case FRIDAY -> friday++;
             }
-
-            if (e.getKey().getYear() != previousYear) {
-                System.out.println();
-                previousYear = e.getKey().getYear();
-            }
-
-            System.out.printf("%s   %19s   %9s%n", e.getKey().toString(), e.getValue(), e.getKey().getDayOfWeek().toString());
         }
 
         holidaysPerWeekday[0] = monday;
