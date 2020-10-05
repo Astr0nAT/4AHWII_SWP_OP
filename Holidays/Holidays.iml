@@ -10,5 +10,6 @@
     <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
     <orderEntry type="library" name="json-20200518" level="project" />
     <orderEntry type="library" name="commons-io-2.8.0" level="project" />
+    <orderEntry type="library" name="JavaFX" level="project" />
   </component>
 </module>
