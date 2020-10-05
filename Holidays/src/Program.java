@@ -37,11 +37,11 @@ public class Program extends Application {
         duration = inputInt(1, 200);
 
         holidays = getAllHolidaysFromFile(duration, beginningYear);
-        holidaysPerWeekday = countHolidaysForEachWeekday(holidays, beginningYear);
+        holidaysPerWeekday = countHolidaysForEachWeekday(holidays);
 
         holidaysVariable = getAllHolidaysFromFile(duration, beginningYear);
-        holidaysVariable = addVariableHolidays(holidaysVariable, duration, beginningYear);
-        holidaysPerWeekdayVariable = countHolidaysForEachWeekday(holidaysVariable, beginningYear);
+        addVariableHolidays(holidaysVariable, duration, beginningYear);
+        holidaysPerWeekdayVariable = countHolidaysForEachWeekday(holidaysVariable);
 
         printHolidays(holidaysVariable);
 
@@ -68,8 +68,44 @@ public class Program extends Application {
         }
     }
 
+    private static void addVariableHolidays(LinkedHashMap<LocalDate, String> holidays,
+                                            int duration, int beginningYear) {
+        int year;
+
+        for (int i = 0; i < duration; i++) {
+            year = beginningYear + i;
+            addDay(holidays, year, "Ostermontag");
+            addDay(holidays, year, "Christi Himmelfahrt");
+            addDay(holidays, year, "Pfingstmontag");
+            addDay(holidays, year, "Fronleichnam");
+        }
+    }
+
+    private static int[] countHolidaysForEachWeekday(LinkedHashMap<LocalDate, String> holidays) {
+        int monday = 0, tuesday = 0, wednesday = 0, thursday = 0, friday = 0;
+        int[] holidaysPerWeekday = new int[5];
+
+        for (Map.Entry<LocalDate, String> e : holidays.entrySet()) {
+            switch (e.getKey().getDayOfWeek()) {
+                case MONDAY -> monday++;
+                case TUESDAY -> tuesday++;
+                case WEDNESDAY -> wednesday++;
+                case THURSDAY -> thursday++;
+                case FRIDAY -> friday++;
+            }
+        }
+
+        holidaysPerWeekday[0] = monday;
+        holidaysPerWeekday[1] = tuesday;
+        holidaysPerWeekday[2] = wednesday;
+        holidaysPerWeekday[3] = thursday;
+        holidaysPerWeekday[4] = friday;
+
+        return holidaysPerWeekday;
+    }
+
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
 
         CategoryAxis xAxis = new CategoryAxis();
         xAxis.setLabel("Weekdays");
@@ -78,26 +114,16 @@ public class Program extends Application {
         yAxis.setLabel("Amount");
 
         // Create a BarChart
-        BarChart<String, Number> barChart = new BarChart<String, Number>(xAxis, yAxis);
+        BarChart<String, Number> barChart = new BarChart<>(xAxis, yAxis);
 
-        // Series 1 - Data of 2014
-        XYChart.Series<String, Number> dataSeries1 = new XYChart.Series<String, Number>();
-        dataSeries1.setName(beginningYear + " - " + (beginningYear + duration));
-
-        dataSeries1.getData().add(new XYChart.Data<String, Number>("Monday", holidaysPerWeekday[0]));
-        dataSeries1.getData().add(new XYChart.Data<String, Number>("Tuesday", holidaysPerWeekday[1]));
-        dataSeries1.getData().add(new XYChart.Data<String, Number>("Wednesday", holidaysPerWeekday[2]));
-        dataSeries1.getData().add(new XYChart.Data<String, Number>("Thursday", holidaysPerWeekday[3]));
-        dataSeries1.getData().add(new XYChart.Data<String, Number>("Friday", holidaysPerWeekday[4]));
-
-        // Add Series to BarChart.
-        barChart.getData().add(dataSeries1);
+        addDatasetToBarchart(barChart, holidaysPerWeekday, "Without variable holidays");
+        addDatasetToBarchart(barChart, holidaysPerWeekdayVariable, "With varibale holidays");
 
         barChart.setTitle("Holidays per weekday from " + beginningYear + " over " + duration + " years.");
 
         VBox vbox = new VBox(barChart);
 
-        primaryStage.setTitle("JavaFX BarChart");
+        primaryStage.setTitle("JavaFX BarChart Holidays");
         Scene scene = new Scene(vbox, 400, 200);
 
         primaryStage.setScene(scene);
@@ -105,22 +131,6 @@ public class Program extends Application {
         primaryStage.setWidth(400);
 
         primaryStage.show();
-    }
-
-    private static LinkedHashMap<LocalDate, String> addVariableHolidays(LinkedHashMap<LocalDate, String> holidays,
-                                                                        int duration, int beginningYear) {
-        int year;
-
-        String date;
-        for (int i = 0; i < duration; i++) {
-            year = beginningYear + i;
-            addDay(holidays, year, "Ostermontag");
-            addDay(holidays, year, "Christi Himmelfahrt");
-            addDay(holidays, year, "Pfingstmontag");
-            addDay(holidays, year, "Fronleichnam");
-        }
-
-        return holidays;
     }
 
     private static void addDay(LinkedHashMap<LocalDate, String> holidays, int year, String name) {
@@ -150,27 +160,17 @@ public class Program extends Application {
         return holidays;
     }
 
-    private static int[] countHolidaysForEachWeekday(LinkedHashMap<LocalDate, String> holidays, int beginningYear) {
-        int monday = 0, tuesday = 0, wednesday = 0, thursday = 0, friday = 0;
-        int[] holidaysPerWeekday = new int[5];
+    private void addDatasetToBarchart(BarChart<String, Number> barChart, int[] holidays, String name) {
+        XYChart.Series<String, Number> dataSeries = new XYChart.Series<>();
 
-        for (Map.Entry<LocalDate, String> e : holidays.entrySet()) {
-            switch (e.getKey().getDayOfWeek()) {
-                case MONDAY -> monday++;
-                case TUESDAY -> tuesday++;
-                case WEDNESDAY -> wednesday++;
-                case THURSDAY -> thursday++;
-                case FRIDAY -> friday++;
-            }
-        }
+        dataSeries.setName(name);
+        dataSeries.getData().add(new XYChart.Data<>("Monday", holidays[0]));
+        dataSeries.getData().add(new XYChart.Data<>("Tuesday", holidays[1]));
+        dataSeries.getData().add(new XYChart.Data<>("Wednesday", holidays[2]));
+        dataSeries.getData().add(new XYChart.Data<>("Thursday", holidays[3]));
+        dataSeries.getData().add(new XYChart.Data<>("Friday", holidays[4]));
 
-        holidaysPerWeekday[0] = monday;
-        holidaysPerWeekday[1] = tuesday;
-        holidaysPerWeekday[2] = wednesday;
-        holidaysPerWeekday[3] = thursday;
-        holidaysPerWeekday[4] = friday;
-
-        return holidaysPerWeekday;
+        barChart.getData().add(dataSeries);
     }
 
     private static StringBuilder readFile(String filename) {
