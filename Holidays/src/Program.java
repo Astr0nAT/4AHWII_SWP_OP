@@ -45,6 +45,10 @@ public class Program extends Application {
 
         printHolidays(holidaysVariable);
 
+        for (int i = 0; i < 5; i++) {
+            System.out.printf("%9s:   %d%n", DayOfWeek.of(i + 1), holidaysPerWeekday[i]);
+        }
+
         System.out.println();
 
         for (int i = 0; i < 5; i++) {
@@ -66,6 +70,7 @@ public class Program extends Application {
             }
             System.out.printf("%s   %19s   %9s%n", key.toString(), holidays.get(key), key.getDayOfWeek());
         }
+        System.out.println();
     }
 
     private static void addVariableHolidays(LinkedHashMap<LocalDate, String> holidays,
@@ -124,12 +129,9 @@ public class Program extends Application {
         VBox vbox = new VBox(barChart);
 
         primaryStage.setTitle("JavaFX BarChart Holidays");
-        Scene scene = new Scene(vbox, 400, 200);
+        Scene scene = new Scene(vbox, 400, 400);
 
         primaryStage.setScene(scene);
-        primaryStage.setHeight(300);
-        primaryStage.setWidth(400);
-
         primaryStage.show();
     }
 
