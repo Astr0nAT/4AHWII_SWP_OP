@@ -87,24 +87,17 @@ public class Program extends Application {
     }
 
     private static int[] countHolidaysForEachWeekday(LinkedHashMap<LocalDate, String> holidays) {
-        int monday = 0, tuesday = 0, wednesday = 0, thursday = 0, friday = 0;
         int[] holidaysPerWeekday = new int[5];
 
         for (Map.Entry<LocalDate, String> e : holidays.entrySet()) {
             switch (e.getKey().getDayOfWeek()) {
-                case MONDAY -> monday++;
-                case TUESDAY -> tuesday++;
-                case WEDNESDAY -> wednesday++;
-                case THURSDAY -> thursday++;
-                case FRIDAY -> friday++;
+                case MONDAY -> holidaysPerWeekday[0]++;
+                case TUESDAY -> holidaysPerWeekday[1]++;
+                case WEDNESDAY -> holidaysPerWeekday[2]++;
+                case THURSDAY -> holidaysPerWeekday[3]++;
+                case FRIDAY -> holidaysPerWeekday[4]++;
             }
         }
-
-        holidaysPerWeekday[0] = monday;
-        holidaysPerWeekday[1] = tuesday;
-        holidaysPerWeekday[2] = wednesday;
-        holidaysPerWeekday[3] = thursday;
-        holidaysPerWeekday[4] = friday;
 
         return holidaysPerWeekday;
     }
