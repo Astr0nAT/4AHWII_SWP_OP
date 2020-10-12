@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f3f03854-9f00-467d-bdc5-b93b9432c8cc" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Tag Library Descriptor" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1hucJb7xDNJkfo8xOj7pqH4ix7J" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunManager" selected="Application.Program">
+    <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Program" />
+      <module name="Holidays" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\schul\OneDrive - HTL Anichstrasse\4AHWII\SWP Rubner Szabolcs\4AHWII_SWP_OP\Holidays\lib\javafx-sdk-15\lib&quot; --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProgramAPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ProgramAPI" />
+      <module name="Holidays" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Program" />
+      <item itemvalue="Application.ProgramAPI" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Program" />
+        <item itemvalue="Application.ProgramAPI" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f3f03854-9f00-467d-bdc5-b93b9432c8cc" name="Default Changelist" comment="" />
+      <created>1600864346709</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600864346709</updated>
+      <workItem from="1600864347803" duration="7580000" />
+      <workItem from="1601360809011" duration="2403000" />
+      <workItem from="1601394025020" duration="7964000" />
+      <workItem from="1601448988141" duration="1328000" />
+      <workItem from="1601465837168" duration="9898000" />
+      <workItem from="1601534158868" duration="1167000" />
+      <workItem from="1601620079910" duration="1565000" />
+      <workItem from="1601627829672" duration="3170000" />
+      <workItem from="1601711715010" duration="388000" />
+      <workItem from="1601715502994" duration="2629000" />
+      <workItem from="1601885584586" duration="4156000" />
+      <workItem from="1601987865862" duration="1682000" />
+      <workItem from="1602012869255" duration="4389000" />
+      <workItem from="1602018616890" duration="826000" />
+      <workItem from="1602052234225" duration="1339000" />
+      <workItem from="1602056708775" duration="166000" />
+      <workItem from="1602056919145" duration="98000" />
+      <workItem from="1602057043422" duration="1300000" />
+      <workItem from="1602058731182" duration="618000" />
+      <workItem from="1602065566832" duration="1056000" />
+      <workItem from="1602071723552" duration="3685000" />
+    </task>
+    <task id="LOCAL-00001" summary="Reading holidays from file and counting the number of holidays each day of the week has.">
+      <created>1601404644114</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1601404644114</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Cleanup">
+      <created>1601404834404</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1601404834404</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Implemented support for variable holidays like &quot;Ostermontag&quot; by using a public api">
+      <created>1601473742063</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1601473742063</updated>
+    </task>
+    <task id="LOCAL-00004" summary="You can now change the beginning year to any year between 1920 and 2120.&#10;The output is now sorted by the date.">
+      <created>1601629747904</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601629747904</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Cleanup">
+      <created>1601632092489</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1601632092489</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Merge PC Laptop">
+      <created>1601886709906</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1601886709906</updated>
+    </task>
+    <task id="LOCAL-00007" summary="JavaFX BarChart implemented.">
+      <created>1601890044039</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601890044039</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Cleanup">
+      <created>1601890218097</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1601890218097</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Now outputting also the amount of the static holidays, changed size of window">
+      <created>1602019154251</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1602019154251</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Cleaned unnessecary variables">
+      <created>1602084271917</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1602084271917</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Reading holidays from file and counting the number of holidays each day of the week has." />
+    <MESSAGE value="Implemented support for variable holidays like &quot;Ostermontag&quot; by using a public api" />
+    <MESSAGE value="You can now change the beginning year to any year between 1920 and 2120.&#10;The output is now sorted by the date." />
+    <MESSAGE value="Merge PC Laptop" />
+    <MESSAGE value="JavaFX BarChart implemented." />
+    <MESSAGE value="Cleanup" />
+    <MESSAGE value="Now outputting also the amount of the static holidays, changed size of window" />
+    <MESSAGE value="Cleaned unnessecary variables" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned unnessecary variables" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="183" key="#Plugins" timestamp="1601885848219">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="552" y="183" key="#Plugins/0.0.1920.1080@0.0.1920.1080" timestamp="1601885848219" />
+    <state x="440" y="117" key="#Project_Structure" timestamp="1600866179881">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="440" y="117" key="#Project_Structure/0.0.1920.1080@0.0.1920.1080" timestamp="1600866179881" />
+    <state x="414" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601885839484">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="414" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601715579888" />
+    <state x="414" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601885839484" />
+    <state x="750" y="439" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1600866940203">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="750" y="439" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1080@0.0.1920.1080" timestamp="1600866940203" />
+    <state x="2081" y="72" width="1736" height="896" key="DiffContextDialog" timestamp="1602019426419">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2081" y="72" width="1736" height="896" key="DiffContextDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602019426419" />
+    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601632104396" />
+    <state x="740" y="297" key="FileChooserDialogImpl" timestamp="1602065567817">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="740" y="297" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601715532716" />
+    <state x="740" y="297" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1602065567817" />
+    <state x="519" y="242" key="FileDocumentManager.FileCacheConflict" timestamp="1600868357444">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="519" y="242" key="FileDocumentManager.FileCacheConflict/0.0.1920.1080@0.0.1920.1080" timestamp="1600868357444" />
+    <state width="1877" height="699" key="GridCell.Tab.0.bottom" timestamp="1602084312975">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="892" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602019455891" />
+    <state width="1877" height="699" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1602084312975" />
+    <state width="1877" height="699" key="GridCell.Tab.0.center" timestamp="1602084312975">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="892" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602019455890" />
+    <state width="1877" height="699" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1602084312975" />
+    <state width="1877" height="699" key="GridCell.Tab.0.left" timestamp="1602084312975">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="892" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602019455890" />
+    <state width="1877" height="699" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1602084312975" />
+    <state width="1877" height="699" key="GridCell.Tab.0.right" timestamp="1602084312975">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="892" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602019455890" />
+    <state width="1877" height="699" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1602084312975" />
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1601890517107">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1601890517107" />
+    <state width="1877" height="363" key="GridCell.Tab.1.center" timestamp="1601890517107">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="363" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1601890517107" />
+    <state width="1877" height="363" key="GridCell.Tab.1.left" timestamp="1601890517107">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="363" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1601890517107" />
+    <state width="1877" height="363" key="GridCell.Tab.1.right" timestamp="1601890517107">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1601890517107" />
+    <state x="373" y="22" width="1366" height="1058" key="SettingsEditor" timestamp="1602072260402">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="463" y="186" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602019284760" />
+    <state x="373" y="22" width="1366" height="1058" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1602072260402" />
+    <state x="552" y="275" key="Vcs.Push.Dialog.v2" timestamp="1602084293259">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="552" y="275" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602019162016" />
+    <state x="552" y="275" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1602084293259" />
+    <state x="739" y="384" key="cloudConfig.PluginsDialog" timestamp="1602057004783">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="739" y="384" key="cloudConfig.PluginsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1602057004783" />
+    <state x="832" y="384" width="645" height="348" key="cloudConfig.SelfSettingsDialog" timestamp="1602052503029">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="832" y="384" width="645" height="348" key="cloudConfig.SelfSettingsDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602019406298" />
+    <state x="832" y="384" key="cloudConfig.SelfSettingsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1602052503029" />
+    <state x="769" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602052524732">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="769" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601711744085" />
+    <state x="769" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1602052524732" />
+    <state x="92" y="92" width="1736" height="896" key="dock-window-1" timestamp="1601470805799">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="92" y="92" width="1736" height="896" key="dock-window-1/0.0.1920.1080@0.0.1920.1080" timestamp="1601470805799" />
+    <state x="342" y="226" width="823" height="748" key="new project wizard" timestamp="1601890515684">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="342" y="226" key="new project wizard/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601712101129" />
+    <state x="342" y="226" width="823" height="748" key="new project wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1601890515684" />
+    <state x="668" y="294" key="refactoring.ChangeSignatureDialog" timestamp="1601403892144">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="668" y="294" key="refactoring.ChangeSignatureDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601403892144" />
+    <state x="616" y="250" key="run.anything.popup" timestamp="1601627911327">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="616" y="250" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1601627911327" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1601400805034">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601400805034" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1600873961521" />
+  </component>
+</project>
