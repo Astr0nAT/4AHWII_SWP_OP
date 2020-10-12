@@ -22,8 +22,10 @@ import java.util.*;
 
 public class ProgramWithVacation extends Application {
     private static final Scanner reader = new Scanner(System.in);
-    private static int[] holidaysPerWeekday;
-    private static int[] holidaysPerWeekdayVariable;
+    private static XYChart.Series<String, Number> oldData1 = new XYChart.Series<>();
+    private static XYChart.Series<String, Number> oldData2 = new XYChart.Series<>();
+    private static XYChart.Series<String, Number> updatedData1 = new XYChart.Series<>();
+    private static XYChart.Series<String, Number> updatedData2 = new XYChart.Series<>();
     private static int beginningYear;
     private static int duration;
 
@@ -31,10 +33,12 @@ public class ProgramWithVacation extends Application {
         LinkedHashMap<LocalDate, String> holidays;
         LinkedHashMap<LocalDate, String> holidaysVariable;
 
-        System.out.print("Beginning year (1920-2120) (inclusive): ");
-        beginningYear = inputInt(1920, 2120);
-        System.out.println("How many years do you want to calculate (1-200)?");
-        duration = inputInt(1, 200);
+        int[] holidaysPerWeekday;
+        int[] holidaysPerWeekdayVariable;
+
+        System.out.println("Using 2017 - 2022 due to missing data in the API.\n");
+        beginningYear = 2017;
+        duration = 6;
 
         holidays = getAllHolidaysFromFile(duration, beginningYear);
         holidaysPerWeekday = countHolidaysForEachWeekday(holidays);
@@ -55,7 +59,60 @@ public class ProgramWithVacation extends Application {
             System.out.printf("%9s:   %d%n", DayOfWeek.of(i + 1), holidaysPerWeekdayVariable[i]);
         }
 
+        oldData1 = createDataset(holidaysPerWeekday, "hol. without var., with invalid");
+        oldData2 = createDataset(holidaysPerWeekdayVariable, "hol. with var., with invalid");
+
+        removeInvalidDays(holidays);
+        removeInvalidDays(holidaysVariable);
+
+        holidaysPerWeekday = countHolidaysForEachWeekday(holidays);
+        holidaysPerWeekdayVariable = countHolidaysForEachWeekday(holidaysVariable);
+
+        updatedData1 = createDataset(holidaysPerWeekday, "hol. without var., without invalid");
+        updatedData2 = createDataset(holidaysPerWeekdayVariable, "hol. with var., without invalid");
+
         Application.launch(args);
+    }
+
+    private static void removeInvalidDays(LinkedHashMap<LocalDate, String> holidays) {
+        String url;
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonO;
+        LocalDate start;
+        LocalDate end;
+        String vacationName;
+
+        for (int i = 0; i < duration; i++) {
+            url = "https://ferien-api.de/api/v1/holidays/BY/" + (beginningYear + i);
+            try {
+                jsonArray = new JSONArray(IOUtils.toString(new URL(url), StandardCharsets.UTF_8));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            for (int j = 0; j < duration; j++) {
+                jsonO = jsonArray.getJSONObject(j);
+                start = LocalDate.parse(jsonO.get("start").toString().substring(0, 10));
+                end = LocalDate.parse(jsonO.get("end").toString().substring(0, 10));
+                vacationName = jsonO.get("name").toString();
+                vacationName = vacationName.substring(0, 1).toUpperCase() + vacationName.substring(1);
+
+                LocalDate finalStart = start;
+                LocalDate finalEnd = end;
+                String finalVacationName = vacationName;
+
+                ArrayList<LocalDate> holidaysDuringVacations = new ArrayList<>();
+
+                holidays.forEach((key, value) -> {
+                    if (key.isAfter(finalStart) && key.isBefore(finalEnd)) {
+                        // System.out.println(value + " am " + key + " ist in den " + finalVacationName);
+                        holidaysDuringVacations.add(key);
+                    }
+                });
+
+                holidaysDuringVacations.forEach(holidays::remove);
+            }
+        }
     }
 
     private static void printHolidays(LinkedHashMap<LocalDate, String> holidays) {
@@ -182,6 +239,19 @@ public class ProgramWithVacation extends Application {
         return json;
     }
 
+    private static XYChart.Series<String, Number> createDataset(int[] holidays, String name) {
+        XYChart.Series<String, Number> dataSeries = new XYChart.Series<>();
+
+        dataSeries.setName(name);
+        dataSeries.getData().add(new XYChart.Data<>("Monday", holidays[0]));
+        dataSeries.getData().add(new XYChart.Data<>("Tuesday", holidays[1]));
+        dataSeries.getData().add(new XYChart.Data<>("Wednesday", holidays[2]));
+        dataSeries.getData().add(new XYChart.Data<>("Thursday", holidays[3]));
+        dataSeries.getData().add(new XYChart.Data<>("Friday", holidays[4]));
+
+        return dataSeries;
+    }
+
     @Override
     public void start(Stage primaryStage) {
 
@@ -194,30 +264,20 @@ public class ProgramWithVacation extends Application {
         // Create a BarChart
         BarChart<String, Number> barChart = new BarChart<>(xAxis, yAxis);
 
-        addDatasetToBarchart(barChart, holidaysPerWeekday, "Without variable holidays");
-        addDatasetToBarchart(barChart, holidaysPerWeekdayVariable, "With varibale holidays");
+        barChart.getData().add(oldData1);
+        barChart.getData().add(oldData2);
+
+        barChart.getData().add(updatedData1);
+        barChart.getData().add(updatedData2);
 
         barChart.setTitle("Holidays per weekday from " + beginningYear + " over " + duration + " years.");
 
         VBox vbox = new VBox(barChart);
 
         primaryStage.setTitle("JavaFX BarChart Holidays");
-        Scene scene = new Scene(vbox, 400, 400);
+        Scene scene = new Scene(vbox, 800, 400);
 
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-    private void addDatasetToBarchart(BarChart<String, Number> barChart, int[] holidays, String name) {
-        XYChart.Series<String, Number> dataSeries = new XYChart.Series<>();
-
-        dataSeries.setName(name);
-        dataSeries.getData().add(new XYChart.Data<>("Monday", holidays[0]));
-        dataSeries.getData().add(new XYChart.Data<>("Tuesday", holidays[1]));
-        dataSeries.getData().add(new XYChart.Data<>("Wednesday", holidays[2]));
-        dataSeries.getData().add(new XYChart.Data<>("Thursday", holidays[3]));
-        dataSeries.getData().add(new XYChart.Data<>("Friday", holidays[4]));
-
-        barChart.getData().add(dataSeries);
     }
 }
