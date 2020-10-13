@@ -24,7 +24,7 @@ public class ProgramWithVacation extends Application {
     private static final Scanner reader = new Scanner(System.in);
     private static XYChart.Series<String, Number> oldData1 = new XYChart.Series<>();
     private static XYChart.Series<String, Number> oldData2 = new XYChart.Series<>();
-    private static XYChart.Series<String, Number> updatedData1 = new XYChart.Series<>();
+    private static final XYChart.Series<String, Number> updatedData1 = new XYChart.Series<>();
     private static XYChart.Series<String, Number> updatedData2 = new XYChart.Series<>();
     private static int beginningYear;
     private static int duration;
@@ -47,31 +47,30 @@ public class ProgramWithVacation extends Application {
         addVariableHolidays(holidaysVariable, duration, beginningYear);
         holidaysPerWeekdayVariable = countHolidaysForEachWeekday(holidaysVariable);
 
-        printHolidays(holidaysVariable);
+        // printHolidays(holidaysVariable);
 
-        for (int i = 0; i < 5; i++) {
-            System.out.printf("%9s:   %d%n", DayOfWeek.of(i + 1), holidaysPerWeekday[i]);
-        }
-
-        System.out.println();
-
-        for (int i = 0; i < 5; i++) {
-            System.out.printf("%9s:   %d%n", DayOfWeek.of(i + 1), holidaysPerWeekdayVariable[i]);
-        }
+        printholidaysPerWeekday(holidaysPerWeekday);
+        printholidaysPerWeekday(holidaysPerWeekdayVariable);
 
         oldData1 = createDataset(holidaysPerWeekday, "hol. without var., with invalid");
         oldData2 = createDataset(holidaysPerWeekdayVariable, "hol. with var., with invalid");
 
-        removeInvalidDays(holidays);
         removeInvalidDays(holidaysVariable);
 
-        holidaysPerWeekday = countHolidaysForEachWeekday(holidays);
         holidaysPerWeekdayVariable = countHolidaysForEachWeekday(holidaysVariable);
 
-        updatedData1 = createDataset(holidaysPerWeekday, "hol. without var., without invalid");
         updatedData2 = createDataset(holidaysPerWeekdayVariable, "hol. with var., without invalid");
 
+        printholidaysPerWeekday(holidaysPerWeekdayVariable);
+
         Application.launch(args);
+    }
+
+    private static void printholidaysPerWeekday(int[] holidaysPerWeekday) {
+        for (int i = 0; i < 5; i++) {
+            System.out.printf("%9s:   %d%n", DayOfWeek.of(i + 1), holidaysPerWeekday[i]);
+        }
+        System.out.println();
     }
 
     private static void removeInvalidDays(LinkedHashMap<LocalDate, String> holidays) {
@@ -267,7 +266,6 @@ public class ProgramWithVacation extends Application {
         barChart.getData().add(oldData1);
         barChart.getData().add(oldData2);
 
-        barChart.getData().add(updatedData1);
         barChart.getData().add(updatedData2);
 
         barChart.setTitle("Holidays per weekday from " + beginningYear + " over " + duration + " years.");
