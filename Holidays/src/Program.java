@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.sql.Connection;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.*;
@@ -55,7 +56,26 @@ public class Program extends Application {
             System.out.printf("%9s:   %d%n", DayOfWeek.of(i + 1), holidaysPerWeekdayVariable[i]);
         }
 
+        System.out.println("\n");
+
+        insertData();
+
         Application.launch(args);
+    }
+
+    private static void insertData() {
+        Connection conn = ProgramDB.connect();
+
+        ProgramDB.createTable(conn);
+        ProgramDB.insertData(conn, beginningYear, duration, beginningYear + duration - 1,
+                holidaysPerWeekdayVariable[0],
+                holidaysPerWeekdayVariable[1],
+                holidaysPerWeekdayVariable[2],
+                holidaysPerWeekdayVariable[3],
+                holidaysPerWeekdayVariable[4]);
+
+        ProgramDB.selectAll(conn);
+        ProgramDB.close(conn);
     }
 
     private static void printHolidays(LinkedHashMap<LocalDate, String> holidays) {
