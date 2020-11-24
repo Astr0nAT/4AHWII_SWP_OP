@@ -1,0 +1,36 @@
+Projekt:
+
+API lesen, DB eintragen, Chart zeichnen
+=======================================
+
+Von der Seite:
+- https://www.alphavantage.co/
+kann man Börsendaten (Aktienkurse) über eine API beziehen.
+
+Genaue Dokumentation hier:
+- https://www.alphavantage.co/documentation/
+
+Arbeitschritte:
+- Kostenlos sich registrieren
+- Aktiendaten über Browser auslesen als Test, JSON wird zurückgegeben
+- interessant sind die CLOSE werte, das bedeutet, mit welchem Preis ging die Aktie am Tageshandelsende aus dem Markt
+- Apple hat die Abkürzung AAPL, Tesla TSLA, alle Firmen US haben Ankürzungen(Ticker)
+- API Aufruf mittels Java Programm durchführen
+- JSON Datei aus der API abfrage analysieren, passende Datenbank-Tabelle entwerfen
+- JSON Datei auslesen, Daten in eine DB-Tabelle abspeichern
+- Für jede Aktie solls eine eigene Tabelle geben
+- DB ist sqlite3 oder mysql
+
+- Als Endergebnis soll das Programm so funktionieren:
+- Programm wird mit einem Argument gestartet: z.B java stockwriter TSLA
+- jetzt werden über die API die Tagesdaten für TSLA für zB 3 Monate heruntergeladen
+- wenn diese Aktie noch nicht behandelt wurde, wird die neue Tabelle angelegt
+- ansonsten werden neu heruntergeladene Daten geschrieben oder geupdatet (INSERT....UPDATE ON DUPLICATE)
+
+Aufgabe wird erweitert in Zukunft:
+- gleitenden Durschnitt berechnen
+- Diagramm/Chart zeichnen
+- Hintergrund Chart grün/rot je nach gleitendem Durschnitt einfärben
+
+- Fertigstellung Weihnachten 2020
+- Jede Woche muss ein Teilbereich fertiggestellt werden
