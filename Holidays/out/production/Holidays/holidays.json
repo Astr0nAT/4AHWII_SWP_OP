@@ -1,0 +1,49 @@
+{
+  "holidays": [
+    {
+      "day": 1,
+      "month": 1,
+      "name": "Neujahr"
+    },
+    {
+      "day": 6,
+      "month": 1,
+      "name": "Heilige Drei Könige"
+    },
+    {
+      "day": 1,
+      "month": 5,
+      "name": "Staatsfeiertag"
+    },
+    {
+      "day": 15,
+      "month": 8,
+      "name": "Mariä Himmelfahrt"
+    },
+    {
+      "day": 26,
+      "month": 10,
+      "name": "Nationalfeiertag"
+    },
+    {
+      "day": 1,
+      "month": 11,
+      "name": "Allerheiligen"
+    },
+    {
+      "day": 8,
+      "month": 12,
+      "name": "Mariä Empfängnis"
+    },
+    {
+      "day": 25,
+      "month": 12,
+      "name": "Weihnachten"
+    },
+    {
+      "day": 26,
+      "month": 12,
+      "name": "Stefanitag"
+    }
+  ]
+}
