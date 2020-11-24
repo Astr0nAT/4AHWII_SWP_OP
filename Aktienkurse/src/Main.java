@@ -61,7 +61,7 @@ public class Main {
 
                 errors = 0;
             } catch (JSONException e) {
-                // if 3 days in a row have no data, the program terminates
+                // if 3 days in a row have no data, the program terminates (the stock market has holidays)
                 errors++;
                 System.err.printf("Error %d on %s%n", errors, date.toString());
                 sleep(30);
