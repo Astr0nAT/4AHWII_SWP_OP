@@ -2,3 +2,5 @@
 *.jar
 *.json
 *.txt
+/Aktienkurse/src/apiKey.txt
+
