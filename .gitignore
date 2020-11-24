@@ -1,6 +1,5 @@
-*.class
-*.jar
-*.json
-*.txt
-/Aktienkurse/src/apiKey.txt
-
+/Aktienkurse/src/apikey.txt
+/Aktienkurse/Aufgabe.txt
+/Aktienkurse/db/DataBase.db
+/Aktienkurse/out/*
+/Aktienkurse/.idea/*
