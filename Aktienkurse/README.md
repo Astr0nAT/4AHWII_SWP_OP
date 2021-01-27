@@ -1,1 +1,1 @@
-#Aktienkurse
+# Aktienkurse
