@@ -1,7 +1,5 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.*;
 
 public class MainDB {
 
@@ -9,22 +7,73 @@ public class MainDB {
     public static String filename = "MainDB.db";
 
     public static void main(String[] args) {
-        Connection conn = connect();
-        String symbol = "TSLA";
+        Connection conn = open();
 
-        createTable(conn, symbol);
+        for(String s : getDescSortedKeys(getClose(conn, "TSLA"))){
+            System.out.println(s);
+        }
 
-        String[] keys = {"1111-01-01", "2222-02-02", "3333-03-03", "4444-04-04"};
-        double[] values = {4.0, 3.0, 2.0, 1.0};
+        System.out.println("\n");
 
-        for (int i = 0; i < 4; i++) {
-            insertOrReplace(conn, keys[i], values[i], symbol);
+        for(String s : getAscSortedKeys(getClose(conn, "TSLA"))){
+            System.out.println(s);
         }
 
         close(conn);
     }
 
-    public static Connection connect() {
+    public static String[] getDescSortedKeys(HashMap<String, Double> hm) {
+        String[] keys = getAscSortedKeys(hm);
+        Arrays.sort(keys, Collections.reverseOrder());
+        return keys;
+    }
+
+    public static HashMap<String, Double> getmA200(Connection conn, String symbol){
+        HashMap<String, Double> hm = new HashMap<>();
+        String statement = "SELECT * FROM " + symbol;
+
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(statement);
+
+            while(rs.next()){
+                hm.put(rs.getString("date"), rs.getDouble("ma200Days"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return hm;
+    }
+
+    public static String[] getAscSortedKeys(HashMap<String, Double> hm){
+        String[] keys = hm.keySet().toArray(new String[hm.size()]);
+        Arrays.sort(keys);
+
+        return keys;
+    }
+
+    public static HashMap<String, Double> getClose(Connection conn, String symbol){
+        HashMap<String, Double> hm = new HashMap<>();
+        String statement = "SELECT * FROM " + symbol;
+
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(statement);
+
+            while(rs.next()){
+                hm.put(rs.getString("date"), rs.getDouble("value"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return hm;
+    }
+
+    public static Connection open() {
         Connection conn = null;
         try {
             String url = "jdbc:sqlite:" + path + filename;
@@ -35,7 +84,6 @@ public class MainDB {
 
         return conn;
     }
-
     public static void close(Connection conn) {
         try {
             if (conn != null) {
@@ -48,8 +96,7 @@ public class MainDB {
 
     public static void createTable(Connection conn, String symbol) {
         String statement =
-                "CREATE TABLE IF NOT EXISTS " + symbol + " (date char(10) PRIMARY KEY, value REAL);";
-
+                "CREATE TABLE IF NOT EXISTS " + symbol + " (date char(10) PRIMARY KEY, value REAL, mA200Days REAL);";
         try {
             Statement stmt = conn.createStatement();
             stmt.execute(statement);
@@ -58,13 +105,16 @@ public class MainDB {
         }
     }
 
-    public static void insertOrReplace(Connection conn, String key, double value, String symbol) {
+    public static void insertOrReplace(Connection conn, String symbol, String date, double close, double mA200Days) {
         String statement =
-                "INSERT OR REPLACE INTO " + symbol + " VALUES ('" + key + "', " + value + ")";
+                "INSERT OR REPLACE INTO " + symbol + " VALUES (?, ?, ?)";
 
         try {
-            Statement stmt = conn.createStatement();
-            stmt.execute(statement);
+            PreparedStatement stmt = conn.prepareStatement(statement);
+            stmt.setString(1, date);
+            stmt.setDouble(2, close);
+            stmt.setDouble(3, mA200Days);
+            stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="MainDB.db">
-  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.19">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.20">
     <root id="1">
       <ServerVersion>3.31.1</ServerVersion>
     </root>
@@ -12,8 +12,8 @@
     <collation id="5" parent="1" name="RTRIM"/>
     <table id="6" parent="2" name="AAPL"/>
     <table id="7" parent="2" name="AMD"/>
-    <table id="8" parent="2" name="INTC"/>
-    <table id="9" parent="2" name="T"/>
+    <table id="8" parent="2" name="AMZN"/>
+    <table id="9" parent="2" name="INTC"/>
     <table id="10" parent="2" name="TSLA"/>
     <table id="11" parent="2" name="sqlite_master">
       <System>1</System>
@@ -26,110 +26,130 @@
       <Position>2</Position>
       <DataType>REAL|0s</DataType>
     </column>
-    <index id="14" parent="6" name="sqlite_autoindex_AAPL_1">
+    <column id="14" parent="6" name="mA200Days">
+      <Position>3</Position>
+      <DataType>REAL|0s</DataType>
+    </column>
+    <index id="15" parent="6" name="sqlite_autoindex_AAPL_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>date</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="15" parent="6">
+    <key id="16" parent="6">
       <ColNames>date</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_AAPL_1</UnderlyingIndexName>
     </key>
-    <column id="16" parent="7" name="date">
+    <column id="17" parent="7" name="date">
       <Position>1</Position>
       <DataType>char(10)|0s</DataType>
     </column>
-    <column id="17" parent="7" name="value">
+    <column id="18" parent="7" name="value">
       <Position>2</Position>
       <DataType>REAL|0s</DataType>
     </column>
-    <index id="18" parent="7" name="sqlite_autoindex_AMD_1">
+    <column id="19" parent="7" name="mA200Days">
+      <Position>3</Position>
+      <DataType>REAL|0s</DataType>
+    </column>
+    <index id="20" parent="7" name="sqlite_autoindex_AMD_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>date</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="19" parent="7">
+    <key id="21" parent="7">
       <ColNames>date</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_AMD_1</UnderlyingIndexName>
     </key>
-    <column id="20" parent="8" name="date">
+    <column id="22" parent="8" name="date">
       <Position>1</Position>
       <DataType>char(10)|0s</DataType>
     </column>
-    <column id="21" parent="8" name="value">
+    <column id="23" parent="8" name="value">
       <Position>2</Position>
       <DataType>REAL|0s</DataType>
     </column>
-    <index id="22" parent="8" name="sqlite_autoindex_INTC_1">
+    <column id="24" parent="8" name="mA200Days">
+      <Position>3</Position>
+      <DataType>REAL|0s</DataType>
+    </column>
+    <index id="25" parent="8" name="sqlite_autoindex_AMZN_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>date</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="23" parent="8">
+    <key id="26" parent="8">
+      <ColNames>date</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_AMZN_1</UnderlyingIndexName>
+    </key>
+    <column id="27" parent="9" name="date">
+      <Position>1</Position>
+      <DataType>char(10)|0s</DataType>
+    </column>
+    <column id="28" parent="9" name="value">
+      <Position>2</Position>
+      <DataType>REAL|0s</DataType>
+    </column>
+    <column id="29" parent="9" name="mA200Days">
+      <Position>3</Position>
+      <DataType>REAL|0s</DataType>
+    </column>
+    <index id="30" parent="9" name="sqlite_autoindex_INTC_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>date</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="31" parent="9">
       <ColNames>date</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_INTC_1</UnderlyingIndexName>
     </key>
-    <column id="24" parent="9" name="date">
+    <column id="32" parent="10" name="date">
       <Position>1</Position>
       <DataType>char(10)|0s</DataType>
     </column>
-    <column id="25" parent="9" name="value">
+    <column id="33" parent="10" name="value">
       <Position>2</Position>
       <DataType>REAL|0s</DataType>
     </column>
-    <index id="26" parent="9" name="sqlite_autoindex_T_1">
+    <column id="34" parent="10" name="mA200Days">
+      <Position>3</Position>
+      <DataType>REAL|0s</DataType>
+    </column>
+    <index id="35" parent="10" name="sqlite_autoindex_TSLA_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>date</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="27" parent="9">
-      <ColNames>date</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>sqlite_autoindex_T_1</UnderlyingIndexName>
-    </key>
-    <column id="28" parent="10" name="date">
-      <Position>1</Position>
-      <DataType>char(10)|0s</DataType>
-    </column>
-    <column id="29" parent="10" name="value">
-      <Position>2</Position>
-      <DataType>REAL|0s</DataType>
-    </column>
-    <index id="30" parent="10" name="sqlite_autoindex_TSLA_1">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>date</ColNames>
-      <ColumnCollations></ColumnCollations>
-      <Unique>1</Unique>
-    </index>
-    <key id="31" parent="10">
+    <key id="36" parent="10">
       <ColNames>date</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_TSLA_1</UnderlyingIndexName>
     </key>
-    <column id="32" parent="11" name="type">
+    <column id="37" parent="11" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="33" parent="11" name="name">
+    <column id="38" parent="11" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="34" parent="11" name="tbl_name">
+    <column id="39" parent="11" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="35" parent="11" name="rootpage">
+    <column id="40" parent="11" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="36" parent="11" name="sql">
+    <column id="41" parent="11" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
